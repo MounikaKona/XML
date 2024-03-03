@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Gnumber">
+                                <!--Restrictions: A string starting with letter ‘G’ and followed by 8 digits for example “G12345678”-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="(G[0-9]{8})"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="ResidenceStatus">
+                                <!--Restrictions: Can be either "In-state" or "Out-of-state"-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="In-state"/>
+                                        <xs:enumeration value="Out-of-state"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="FirstName" minOccurs="1">
+                                <!--Restrictions: A string of letters or hyphen of length less than 20 (no other chars are allowed)-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]*|[-]"/>
+                                        <xs:minLength value="1"/>
+                                        <xs:maxLength value="19"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MiddleInitial">
+                                <!--Restrictions: Can be 1 letter or empty-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]?"/>
+                                        <xs:minLength value="0"/>
+                                        <xs:maxLength value="1"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="LastName">
+                                <!--Restrictions: A string of letters or hyphen of length less than 20 (no other chars are allowed)-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]*|[-]"/>
+                                        <xs:minLength value="1"/>
+                                        <xs:maxLength value="19"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DOB">
+                                <!--Restrictions: Between 01/01/1970 and 12/31/2000 inclusive-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(197[0-9]|198[0-9]|199[0-9]|200[0])"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="ProgramName">
+                                <!--Restrictions: Can be one of the following choices: -->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="MS Health Informatics"/>
+                                        <xs:enumeration value="Graduate Certificate in Health Informatics"/>
+                                        <xs:enumeration value="MS Health Management"/>
+                                        <xs:enumeration value="MS Senior Living"/>
+                                        <xs:enumeration value="PhD in Health Services Research"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Concentration" minOccurs="0">
+                                <!--Restrictions:Optional element. For MS Health Informatics program has two possible concentrations: “Data analytics” and “Information Management”.-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="0"/>
+                                        <xs:enumeration value="Data analytics"/>
+                                        <xs:enumeration value="Information Management"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="StartYear">
+                                <!--Restrictions: Between 2014 and 2017 inclusive.-->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <xs:minInclusive value="2014"/>
+                                        <xs:maxInclusive value="2017"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Courses" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Course" minOccurs="1" maxOccurs="15">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Department" minOccurs="1">
+                                                        <!--Restrictions:Can be one of the following values: HAP, NURS, NUTR, MATH, INFS, STAT, SWE, ECON and EPID.-->
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="HAP"/>
+                                                                <xs:enumeration value="NURS"/>
+                                                                <xs:enumeration value="NUTR"/>
+                                                                <xs:enumeration value="MATH"/>
+                                                                <xs:enumeration value="INFS"/>
+                                                                <xs:enumeration value="STAT"/>
+                                                                <xs:enumeration value="SWE"/>
+                                                                <xs:enumeration value="ECON"/>
+                                                                <xs:enumeration value="EPID"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="CatalogNumber">
+                                                        <!---Restrictions:A number between 500 and 999-->
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:integer">
+                                                                <xs:minInclusive value="500"/>
+                                                                <xs:maxInclusive value="999"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Semester" minOccurs="1">
+                                                        <!---Restrictions: Can be one of three values: Spring, Summer, Fall-->
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Spring"/>
+                                                                <xs:enumeration value="Summer"/>
+                                                                <xs:enumeration value="Fall"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Year">
+                                                        <!---Restrictions: A number between 2014 and 2017 inclusive-->
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:integer">
+                                                                <xs:minInclusive value="2014"/>
+                                                                <xs:maxInclusive value="2017"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="LetterGrade">
+                                                        <!---Restrictions:Can be one of the following: A+, A, A-, B+,B, B-, C, F and INCOMP-->
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="A+"/>
+                                                                <xs:enumeration value="A"/>
+                                                                <xs:enumeration value="A-"/>
+                                                                <xs:enumeration value="B+"/>
+                                                                <xs:enumeration value="B"/>
+                                                                <xs:enumeration value="B-"/>
+                                                                <xs:enumeration value="C"/>
+                                                                <xs:enumeration value="F"/>
+                                                                <xs:enumeration value="INCOMP"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+<MedRecords xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PatRec>
+    <Name>
+      <FirstName>Jack</FirstName>
+      <MiddleName>Lawrence</MiddleName>
+      <LastName>Robertson</LastName>
+    </Name>
+    <Identifier>
+      <SSN>121121121</SSN>
+    </Identifier>
+    <MedTest>Blood Test</MedTest>
+    <Date>10/17/2003</Date>
+    <TestCost>20</TestCost>
+    <Lab>MHA1</Lab>
+  </PatRec>
+  <PatRec>
+    <Name>
+      <FirstName>Robert</FirstName>
+      <MiddleName>H.</MiddleName>
+      <LastName>Alison</LastName>
+    </Name>
+    <Identifier>
+      <DriverLicense>521121121</DriverLicense>
+    </Identifier>
+    <MedTest>X ray</MedTest>
+    <Date>10/17/2004</Date>
+    <TestCost>600.00</TestCost>
+    <Lab>MHA1</Lab>
+  </PatRec>
+</MedRecords>

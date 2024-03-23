@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<PatientList>
+	<PatientDemographic>
+		<PatientName>Robertson, Jack Lawrence</PatientName>
+		<SSN>121121121</SSN>
+	</PatientDemographic>
+	<ServicePerformed>
+		<Service>
+			<ServiceName>Blood Test</ServiceName>
+			<Date>10/17/2003</Date>
+			<Cost>20</Cost>
+			<Provider>MHA1</Provider>
+		</Service>
+	</ServicePerformed>
+	<PatientDemographic>
+		<PatientName>Alison, Robert H.</PatientName>
+		<DriverLicense>521121121</DriverLicense>
+	</PatientDemographic>
+	<ServicePerformed>
+		<Service>
+			<ServiceName>X ray</ServiceName>
+			<Date>10/17/2004</Date>
+			<Cost>600.00</Cost>
+			<Provider>MHA1</Provider>
+		</Service>
+	</ServicePerformed>
+</PatientList>
